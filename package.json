@@ -1,0 +1,44 @@
+{
+  "name": "tensorboard-mux",
+  "private": true,
+  "description": "TensorBoard multiplexer",
+  "scripts": {
+    "build": "rimraf lib && babel src -d lib",
+    "lint": "eslint src",
+    "start": "NODE_ENV=production node lib/server.js",
+    "start-dev": "nodemon --exec babel-node -- src/server.js",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4Catalyzer/tensorboard-mux.git"
+  },
+  "keywords": [
+    "tensorboard",
+    "tensorflow"
+  ],
+  "author": "4Catalyzer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/4Catalyzer/tensorboard-mux/issues"
+  },
+  "homepage": "https://github.com/4Catalyzer/tensorboard-mux#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "colors": "^1.1.2",
+    "http-proxy": "^1.16.2",
+    "node-fetch": "^1.7.2",
+    "path-to-regexp": "^2.0.0",
+    "yargs": "^8.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.5.0",
+    "eslint-config-4catalyzer": "^0.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1"
+  }
+}
