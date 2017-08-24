@@ -1,0 +1,6 @@
+*
+
+!src/
+!.babelrc
+!package-lock.json
+!package.json
