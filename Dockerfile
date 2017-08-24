@@ -15,6 +15,6 @@ RUN npm install && npm cache clean --force
 COPY . /usr/src/app
 RUN npm run build
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "start", "--"]
 
 EXPOSE 6006
