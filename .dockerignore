@@ -1,6 +1,7 @@
 *
 
 !src/
+!tools/
 !.babelrc
 !package-lock.json
 !package.json

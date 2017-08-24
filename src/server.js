@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
 
-import 'babel-polyfill';
-
 import childProcess from 'child_process';
 import 'colors';
 import fs from 'fs';
@@ -91,7 +89,7 @@ async function createTensorBoard(logDir) {
   // Wait for the TensorBoard server to be ready.
   while (true) { // eslint-disable-line no-constant-condition
     try {
-      const res = await fetch(`http://localhost:${port}`);
+      const res = await fetch(`http://localhost:${port}`); // eslint-disable-line no-await-in-loop
       if (res.ok) {
         break;
       }

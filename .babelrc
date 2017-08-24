@@ -1,9 +1,5 @@
 {
   "presets": [
-    ["env", {
-      "targets": { "node": "current" },
-      "loose": true,
-      "useBuiltIns": true
-    }]
+    "./tools/envPreset"
   ]
 }
