@@ -1,4 +1,4 @@
-# TensorBoard Mux
+# TensorBoard Mux [![npm][npm-badge]][npm]
 
 [TensorBoard](https://github.com/tensorflow/tensorboard) multiplexer.
 
@@ -9,9 +9,9 @@ As with TensorBoard, it is not recommended to expose these servers publicly.
 ## Usage
 
 ```
-$ npm i
-$ npm run build
-$ npm start -- --logdir /tensorflow-logs
+$ pip install tensorflow-tensorboard
+$ npm i -g tensorboard-mux
+$ tensorboard-mux --logdir /tensorflow-logs
 ```
 
 Then visit `http://localhost:6006/user/experiment` to view the logs at `/tensorflow-logs/user/experiment`.
@@ -21,3 +21,6 @@ Then visit `http://localhost:6006/user/experiment` to view the logs at `/tensorf
 To match the behavior of TensorBoard, TensorBoard Mux serves on host 0.0.0.0 and port 6006 by default. You can configure those with `--host` and `--port`. Use `--host 127.0.0.1` to disable remote serving.
 
 This repository also includes a `Dockerfile` that can be used to build a Docker image.
+
+[npm-badge]: https://img.shields.io/npm/v/tensorboard-mux.svg
+[npm]: https://www.npmjs.org/package/tensorboard-mux
