@@ -83,6 +83,12 @@ async function createTensorBoard(logDir) {
   ]);
 
   const logPrefix = `[${logPath}]`;
+
+  child.on('exit', () => {
+    console.log(logPrefix.red.bold, 'exited');
+    delete tensorBoards[logDir];
+  });
+
   child.stdout.on('data', logWithPrefix.bind(null, logPrefix.white.bold));
   child.stderr.on('data', logWithPrefix.bind(null, logPrefix.red.bold));
 
@@ -99,7 +105,7 @@ async function createTensorBoard(logDir) {
   return { port, child };
 }
 
-async function ensureTensorBoard(logDir) {
+function ensureTensorBoard(logDir) {
   if (!tensorBoards[logDir]) {
     tensorBoards[logDir] = createTensorBoard(logDir);
   }
@@ -108,6 +114,14 @@ async function ensureTensorBoard(logDir) {
 }
 
 const proxy = httpProxy.createProxyServer({});
+
+proxy.on('error', (err, req, res) => {
+  if (!res.headersSent) {
+    res.writeHead(502);
+  }
+
+  res.end(err.code);
+});
 
 const server = http.createServer(async (req, res) => {
   const match = (
