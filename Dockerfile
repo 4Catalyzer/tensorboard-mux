@@ -7,7 +7,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py \
 
 WORKDIR /usr/src/app
 
-RUN pip install tensorflow-tensorboard
+RUN pip install --no-cache tensorflow
 
 COPY package.json package-lock.json /usr/src/app/
 RUN npm install && npm cache clean --force
